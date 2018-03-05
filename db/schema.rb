@@ -17,10 +17,11 @@ ActiveRecord::Schema.define(version: 20180302211242) do
     t.integer "cmc"
     t.string "mana_cost"
     t.string "color_identity"
-    t.string "full_type"
+    t.string "base_type"
     t.string "rarity"
     t.integer "power"
     t.integer "toughness"
+    t.string "text"
     t.string "img_url"
     t.string "game_format"
     t.datetime "created_at", null: false
