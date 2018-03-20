@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
 
   def index
-    @cards = Card.where(card_params).limit(5)
+    @cards = Card.where(card_params).limit(20)
     render json: @cards
   end
 

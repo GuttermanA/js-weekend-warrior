@@ -10,20 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180302211242) do
+ActiveRecord::Schema.define(version: 20180319173331) do
+
+  create_table "card_colors", force: :cascade do |t|
+    t.integer "card_id"
+    t.integer "color_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "card_formats", force: :cascade do |t|
+    t.integer "card_id"
+    t.integer "format_id"
+    t.boolean "legal"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cards", force: :cascade do |t|
     t.string "name"
-    t.integer "cmc"
     t.string "mana_cost"
-    t.string "color_identity"
-    t.string "base_type"
+    t.integer "cmc"
+    t.string "full_type"
     t.string "rarity"
+    t.string "text"
+    t.string "flavor"
+    t.string "artist"
+    t.integer "collector_number"
     t.integer "power"
     t.integer "toughness"
-    t.string "text"
+    t.integer "loyalty"
     t.string "img_url"
-    t.string "game_format"
+    t.integer "mtg_set_id"
+  end
+
+  create_table "colors", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -40,6 +62,21 @@ ActiveRecord::Schema.define(version: 20180302211242) do
     t.string "name"
     t.integer "card_count"
     t.string "format"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "formats", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "mtg_sets", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.date "release_date"
+    t.string "block"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

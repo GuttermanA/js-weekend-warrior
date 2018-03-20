@@ -73,7 +73,8 @@ class App {
         Accept: "application/json"
       },
     }
-    fetch(`http://localhost:3000/cards?${this.generateSearchParams()}`, options)
+    console.log(`http://localhost:4000/cards?${this.generateSearchParams()}`);
+    fetch(`http://localhost:4000/cards?${this.generateSearchParams()}`, options)
       .then(res => res.json())
       .then(json => {
         this.cardDisplay.innerHTML = ""
@@ -132,6 +133,7 @@ class App {
       params[this.cardTypeList.name] = this.cardTypeList.selectedOptions[0].value
     }
     let esc = encodeURIComponent;
+    console.log(params);
     let query = Object.keys(params)
         .map(k => esc(k) + '=' + esc(params[k]))
         .join('&');
